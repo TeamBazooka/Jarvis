@@ -8,11 +8,11 @@ Array.prototype.randomElement = function () {
 };
 
 const messages = {
-  "i\\s+like": ["I like @barsandpwn's mom", "I :heart: @barsandpwn's mom"],
+  " i\\s+like ": ["I like @barsandpwn's mom", "I :heart: @barsandpwn's mom"],
   "(drumpf|trump)": "Shhh! He might hear you and try to strangle you with his small hands!",
   "@satire": "@sarif thinks your autocorrect is bad and you should feel bad.",
-  "should I": ["Yes!!!", "Ugh, no!", "Absolutely!", "Please No!"],
-  "lunch": [
+  " should I ": ["Yes!!!", "Ugh, no!", "Absolutely!", "Please No!"],
+  " lunch ": [
     ":taco:",
     ":hotdog:",
     ":pizza:",
@@ -27,12 +27,12 @@ const messages = {
     ":spaghetti:",
     ":poultry_leg:"
   ],
-  "help": "https://media.giphy.com/media/phJ6eMRFYI6CQ/giphy.gif",
-  "weather": "http://i.imgur.com/PCWqrYG.gif",
-  "reference": "https://i.imgur.com/XS5LK.gif",
+  " help ": "https://media.giphy.com/media/phJ6eMRFYI6CQ/giphy.gif",
+  " weather ": "http://i.imgur.com/PCWqrYG.gif",
+  " reference ": "https://i.imgur.com/XS5LK.gif",
   "barb|strange|things": "https://www.youtube.com/watch?v=2ObcrzOZar0",
-  "fine": "https://media.giphy.com/media/3o6UBpHgaXFDNAuttm/giphy.gif",
-  "options": [
+  " fine ": "https://media.giphy.com/media/3o6UBpHgaXFDNAuttm/giphy.gif",
+  " options ": [
     "https://media.giphy.com/media/K7QDQeUgrIyFW/giphy.gif",
     "https://media.giphy.com/media/xUA7aUNw61j9Vdzs0U/giphy.gif"
   ]
