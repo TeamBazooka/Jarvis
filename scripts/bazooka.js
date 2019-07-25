@@ -45,7 +45,8 @@ const messages = {
   "popcorn": [
     "https://i.imgur.com/kGhIjsP.gif",
     "https://i.imgur.com/0hQyd5L.gif"
-  ]
+  ],
+  "seal": "https://i.imgur.com/4RR5Hyk.png"
 };
 
 const random = (values) => (res) => res.send(Array.isArray(values) ? values.randomElement() : values);
