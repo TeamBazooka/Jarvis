@@ -46,7 +46,8 @@ const messages = {
     "https://i.imgur.com/kGhIjsP.gif",
     "https://i.imgur.com/0hQyd5L.gif"
   ],
-  "seal": "https://i.imgur.com/4RR5Hyk.png"
+  "seal": "https://i.imgur.com/4RR5Hyk.png",
+  "lights": "http://dongeronimopodcast.com/wp-content/uploads/2016/12/4lights.png"
 };
 
 const random = (values) => (res) => res.send(Array.isArray(values) ? values.randomElement() : values);
