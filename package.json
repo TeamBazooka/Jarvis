@@ -5,8 +5,8 @@
   "author": "Ethan Apodaca <papodaca@gmail.com>",
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
-    "hubot": "^2.19.0",
-    "hubot-matteruser": "^4.4.0",
+    "hubot": "^3.0.0",
+    "hubot-matteruser": "^5.3.1",
     "hubot-redis-brain": "^0.0.4",
     "request": "^2.85.0"
   },
@@ -14,7 +14,7 @@
     "test": "echo do nothing"
   },
   "engines": {
-    "node": "9.9.0",
-    "yarn": "1.5.1"
+    "node": "10.16.3",
+    "yarn": "^1.17.0"
   }
 }
