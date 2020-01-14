@@ -47,7 +47,7 @@ const messages = {
     "https://i.imgur.com/0hQyd5L.gif"
   ],
   "seal": "https://i.imgur.com/4RR5Hyk.png",
-  "oh\sno": "https://i.imgur.com/pzu87Mv.gifv",
+  "oh\\sno": "https://i.imgur.com/pzu87Mv.gifv",
   "lights": "http://dongeronimopodcast.com/wp-content/uploads/2016/12/4lights.png"
 };
 
