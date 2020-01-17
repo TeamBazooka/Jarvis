@@ -12,7 +12,6 @@ Array.prototype.randomElement = function () {
 const messages = {
   "batman": "I'm batman!!",
   "i\\s+like": ["I like barsandpwn's mom", "I :heart: @barsandpwn's mom"],
-
   "@satire": "@sarif thinks your autocorrect is bad and you should feel bad.",
   "should I": ["Yes!!!", "Ugh, no!", "Absolutely!", "Please No!"],
   "lunch": [
@@ -73,7 +72,7 @@ const handleTrump = (res) => {
   ).then((res) => {
     return res.json()
   }).then((data) => {
-    res.send(`His ${names.randomElement()}:\n> ${data.value}`);
+    res.send(`[His ${names.randomElement()}:](${data._embedded.source[0].url})\n> ${data.value}`);
   });
 };
 
@@ -81,7 +80,7 @@ module.exports = (robot) => {
   Object.keys(messages).forEach((messageKey) => {
     robot.hear(new RegExp(`(?:^|[^\\w\\/\\\\_])${messageKey}(?:[^\\w\\/\\\\_]|$)`, "i"), random(messages[messageKey]));
   });
-  const trump = "(drumpf|trump|individual\\s(one|1))";
+  const trump = "(drumpf|trump|45|forty(-|\\s)five|individual\\s(one|1))";
   robot.hear(new RegExp(`(?:^|[^\\w\\/\\\\_])${trump}(?:[^\\w\\/\\\\_]|$)`, "i"), handleTrump);
 
   robot.router.get("/", (req, res) => {
