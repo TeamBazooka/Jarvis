@@ -9,6 +9,14 @@ Array.prototype.randomElement = function () {
   return this[Math.floor(Math.random() * this.length)];
 };
 
+Array.prototype.first = function () {
+  if(this.length === 0) {
+    undefined;
+  } else {
+    this[0];
+  }
+};
+
 const messages = {
   "batman": "I'm batman!!",
   "i\\s+like": ["I like barsandpwn's mom", "I :heart: @barsandpwn's mom"],
@@ -80,7 +88,7 @@ module.exports = (robot) => {
   Object.keys(messages).forEach((messageKey) => {
     robot.hear(new RegExp(`(?:^|[^\\w\\/\\\\_])${messageKey}(?:[^\\w\\/\\\\_]|$)`, "i"), random(messages[messageKey]));
   });
-  const trump = "(drumpf|trump|45|forty(-|\\s)five|individual\\s(one|1))";
+  const trump = "(drumpf|trump|45|fou?rty(-|\\s)?five|individual\\s(one|1))";
   robot.hear(new RegExp(`(?:^|[^\\w\\/\\\\_])${trump}(?:[^\\w\\/\\\\_]|$)`, "i"), handleTrump);
 
   robot.router.get("/", (req, res) => {
