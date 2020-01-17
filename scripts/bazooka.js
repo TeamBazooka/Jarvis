@@ -1,3 +1,5 @@
+const fetch = require('node-fetch');
+
 Array.prototype.randomElement = function () {
   if(this.length === 0) {
     undefined;
@@ -10,7 +12,7 @@ Array.prototype.randomElement = function () {
 const messages = {
   "batman": "I'm batman!!",
   "i\\s+like": ["I like barsandpwn's mom", "I :heart: @barsandpwn's mom"],
-  "(drumpf|trump|individual\\s(one|1))": "Shhh! He might hear you and try to strangle you with his small hands!",
+
   "@satire": "@sarif thinks your autocorrect is bad and you should feel bad.",
   "should I": ["Yes!!!", "Ugh, no!", "Absolutely!", "Please No!"],
   "lunch": [
@@ -53,10 +55,34 @@ const messages = {
 
 const random = (values) => (res) => res.send(Array.isArray(values) ? values.randomElement() : values);
 
+const names = [
+  'Chetoyness',
+  'Orangeyness',
+  'spray-tanned-turd-face'
+];
+
+const handleTrump = (res) => {
+  fetch(
+    "https://api.tronalddump.io/random/quote",
+    {
+      "headers": {
+        "accept":"application/json"
+      },
+      "method":"GET"
+    }
+  ).then((res) => {
+    return res.json()
+  }).then((data) => {
+    res.send(`His ${names.randomElement()}:\n> ${data.value}`);
+  });
+};
+
 module.exports = (robot) => {
   Object.keys(messages).forEach((messageKey) => {
     robot.hear(new RegExp(`(?:^|[^\\w\\/\\\\_])${messageKey}(?:[^\\w\\/\\\\_]|$)`, "i"), random(messages[messageKey]));
   });
+  const trump = "(drumpf|trump|individual\\s(one|1))";
+  robot.hear(new RegExp(`(?:^|[^\\w\\/\\\\_])${trump}(?:[^\\w\\/\\\\_]|$)`, "i"), handleTrump);
 
   robot.router.get("/", (req, res) => {
     res.send("I am Jarvis, Hello!");
