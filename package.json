@@ -5,6 +5,7 @@
   "author": "Ethan Apodaca <papodaca@gmail.com>",
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
+    "cryptiles": "^4.1.2",
     "hubot": "^3.0.0",
     "hubot-matteruser": "^5.3.1",
     "hubot-redis-brain": "^0.0.4",
