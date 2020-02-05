@@ -55,7 +55,7 @@ const messages = {
     "https://i.imgur.com/kGhIjsP.gif",
     "https://i.imgur.com/0hQyd5L.gif"
   ],
-  "don'?t\\sread": "https://i.imgur.com/0Gl5eGD.gifv",
+  "don'?t\\sread": "https://media.giphy.com/media/eJQjSeWZucRwbXe4ZD/giphy.gif",
   "seal": "https://i.imgur.com/4RR5Hyk.png",
   "oh\\sno": "https://i.imgur.com/pzu87Mv.gif",
   "lights": "http://dongeronimopodcast.com/wp-content/uploads/2016/12/4lights.png"
