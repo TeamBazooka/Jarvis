@@ -66,7 +66,8 @@ const random = (values) => (res) => res.send(Array.isArray(values) ? values.rand
 const names = [
   'Chetoyness',
   'Orangeyness',
-  'spray-tanned-turd-face'
+  'spray-tanned-turd-face',
+  'horrible scrotal sludge beast'
 ];
 
 const handleTrump = (res) => {
