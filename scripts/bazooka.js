@@ -19,7 +19,7 @@ Array.prototype.first = function () {
 
 const messages = {
   "batman": "I'm batman!!",
-  "i\\s+like": ["I like barsandpwn's mom", "I :heart: @barsandpwn's mom"],
+  "i\\s+like": ["I like barsandpwn's mom", "I :heart: barsandpwn's mom"],
   "@satire": "@sarif thinks your autocorrect is bad and you should feel bad.",
   "should I": ["Yes!!!", "Ugh, no!", "Absolutely!", "Please No!"],
   "lunch": [
@@ -37,10 +37,10 @@ const messages = {
     ":spaghetti:",
     ":poultry_leg:"
   ],
-  "help": "https://media.giphy.com/media/phJ6eMRFYI6CQ/giphy.gif",
+  "i need help": "https://media.giphy.com/media/phJ6eMRFYI6CQ/giphy.gif",
   "weather": "https://i.imgur.com/PCWqrYG.gif",
   "reference": "https://i.imgur.com/XS5LK.gif",
-  "fine": "https://media.giphy.com/media/NTur7XlVDUdqM/giphy.gif",
+  "this is fine": "https://media.giphy.com/media/NTur7XlVDUdqM/giphy.gif",
   "back\\sto\\swork": "https://i.imgur.com/gajx18c.gif",
   "options": [
     "https://media.giphy.com/media/K7QDQeUgrIyFW/giphy.gif",
