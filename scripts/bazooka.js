@@ -71,19 +71,23 @@ const names = [
 ];
 
 const handleTrump = (res) => {
-  fetch(
-    "https://api.tronalddump.io/random/quote",
-    {
-      "headers": {
-        "accept":"application/json"
-      },
-      "method":"GET"
-    }
-  ).then((res) => {
-    return res.json()
-  }).then((data) => {
-    res.send(`[His ${names.randomElement()}:](${data._embedded.source[0].url})\n> ${data.value}`);
-  });
+  if((Math.random() * 100) < 10) {
+    res.send('https://tenor.com/view/trump-america-president-donald-donald-trump-gif-5545457')
+  } else {
+    fetch(
+      "https://api.tronalddump.io/random/quote",
+      {
+        "headers": {
+          "accept":"application/json"
+        },
+        "method":"GET"
+      }
+    ).then((res) => {
+      return res.json()
+    }).then((data) => {
+      res.send(`[His ${names.randomElement()}:](${data._embedded.source[0].url})\n> ${data.value}`);
+    });
+  }
 };
 
 module.exports = (robot) => {
