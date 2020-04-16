@@ -72,7 +72,7 @@ const names = [
 
 const handleTrump = (res) => {
   if((Math.random() * 100) < 10) {
-    res.send('https://tenor.com/view/trump-america-president-donald-donald-trump-gif-5545457')
+    res.send('https://media.giphy.com/media/j3UrEtJuj5X7i6G9qO/giphy.gif')
   } else {
     fetch(
       "https://api.tronalddump.io/random/quote",
