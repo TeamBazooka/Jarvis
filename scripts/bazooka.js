@@ -63,41 +63,10 @@ const messages = {
 
 const random = (values) => (res) => res.send(Array.isArray(values) ? values.randomElement() : values);
 
-const names = [
-  'Chetoyness',
-  'Orangeyness',
-  'spray-tanned-turd-face',
-  'horrible scrotal sludge beast'
-];
-
-const handleTrump = (res) => {
-  if((Math.random() * 100) < 10) {
-    if((Math.random() * 100) < 10) {
-      res.send('https://media.giphy.com/media/j3UrEtJuj5X7i6G9qO/giphy.gif')
-    } else {
-      fetch(
-        "https://api.tronalddump.io/random/quote",
-        {
-          "headers": {
-            "accept":"application/json"
-          },
-          "method":"GET"
-        }
-      ).then((res) => {
-        return res.json()
-      }).then((data) => {
-        res.send(`[His ${names.randomElement()}:](${data._embedded.source[0].url})\n> ${data.value}`);
-      });
-    }
-  }
-};
-
 module.exports = (robot) => {
   Object.keys(messages).forEach((messageKey) => {
     robot.hear(new RegExp(`(?:^|[^\\w\\/\\\\_])${messageKey}(?:[^\\w\\/\\\\_]|$)`, "i"), random(messages[messageKey]));
   });
-  const trump = "(drumpf|trump|45|fou?rty(-|\\s)?five|individual\\s(one|1))";
-  robot.hear(new RegExp(`(?:^|[^\\w\\/\\\\_])${trump}(?:[^\\w\\/\\\\_]|$)`, "i"), handleTrump);
 
   robot.router.get("/", (req, res) => {
     res.send("I am Jarvis, Hello!");
