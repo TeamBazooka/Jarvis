@@ -11,13 +11,5 @@
     "hubot-redis-brain": "^0.0.4",
     "node-fetch": "^2.6.1",
     "request": "^2.85.0"
-  },
-  "scripts": {
-    "test": "echo do nothing else"
-  },
-  "engines": {
-    "node": "17.7.x",
-    "npm": "8.5.x",
-    "yarn": "1.22.x"
   }
 }
