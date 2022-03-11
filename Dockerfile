@@ -2,7 +2,7 @@ FROM node:lts
 
 RUN mkdir /app
 
-COPY ./* /app/
+COPY ./ /app/
 
 WORKDIR /app
 
