@@ -13,7 +13,7 @@
     "request": "^2.85.0"
   },
   "scripts": {
-    "test": "echo do nothing"
+    "test": "echo do nothing else"
   },
   "engines": {
     "node": "12.14.1",
