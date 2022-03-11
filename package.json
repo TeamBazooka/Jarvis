@@ -16,8 +16,8 @@
     "test": "echo do nothing else"
   },
   "engines": {
-    "node": "16.14.0",
-    "npm": "8.1.0",
+    "node": "17.7.1",
+    "npm": "8.5.2",
     "yarn": "1.22.17"
   }
 }
