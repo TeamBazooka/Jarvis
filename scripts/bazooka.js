@@ -19,7 +19,6 @@ Array.prototype.first = function () {
 
 const messages = {
   "batman": "I'm batman!!",
-  "i\\s+like": ["I like b4r54ndpwn's mom", "I :heart: b4r54ndpwn's mom"],
   "@satire": "@sarif thinks your autocorrect is bad and you should feel bad.",
   "should I": ["Yes!!!", "Ugh, no!", "Absolutely!", "Please No!"],
   "lunch": [
