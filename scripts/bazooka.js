@@ -1,16 +1,15 @@
-const fetch = require('node-fetch');
-
+var util = require("../lib/util")
 Array.prototype.randomElement = function () {
-  if(this.length === 0) {
+  if (this.length === 0) {
     undefined;
-  } else if(this.length === 1) {
+  } else if (this.length === 1) {
     this[0];
   }
   return this[Math.floor(Math.random() * this.length)];
 };
 
 Array.prototype.first = function () {
-  if(this.length === 0) {
+  if (this.length === 0) {
     undefined;
   } else {
     this[0];
@@ -55,12 +54,11 @@ const messages = {
     "https://i.imgur.com/0hQyd5L.gif"
   ],
   "don'?t\\sread": "https://media.giphy.com/media/eJQjSeWZucRwbXe4ZD/giphy.gif",
-  "seal": "https://i.imgur.com/4RR5Hyk.png",
   "oh\\sno": "https://i.imgur.com/pzu87Mv.gif",
   "lights": "http://dongeronimopodcast.com/wp-content/uploads/2016/12/4lights.png"
 };
 
-const random = (values) => (res) => res.send(Array.isArray(values) ? values.randomElement() : values);
+const random = (values) => (msg) => util.reply(msg, Array.isArray(values) ? values.randomElement() : values);
 
 module.exports = (robot) => {
   Object.keys(messages).forEach((messageKey) => {

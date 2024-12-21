@@ -20,11 +20,11 @@
 //   wiredfool, patcon@gittip
 
 const config =
-  {use_timeago: process.env.HUBOT_SEEN_TIMEAGO !== 'false'};
+  { use_timeago: process.env.HUBOT_SEEN_TIMEAGO !== 'false' };
 
 const clean = thing => (thing || '').toLowerCase().trim();
 
-const is_pm = function(msg) {
+const is_pm = function (msg) {
   try {
     return msg.message.user.pm;
   } catch (error) {
@@ -32,7 +32,7 @@ const is_pm = function(msg) {
   }
 };
 
-const ircname = function(msg) {
+const ircname = function (msg) {
   try {
     return msg.message.user.name;
   } catch (error) {
@@ -40,7 +40,7 @@ const ircname = function(msg) {
   }
 };
 
-const ircchan = function(msg) {
+const ircchan = function (msg) {
   try {
     return msg.message.user.room;
   } catch (error) {
@@ -52,7 +52,7 @@ class Seen {
   constructor(robot) {
     this.save = this.save.bind(this);
     this.robot = robot;
-    this.cache= {};
+    this.cache = {};
 
     this.robot.brain.on('loaded', () => { return this.cache = this.robot.brain.data.seen || {}; });
   }
@@ -78,8 +78,8 @@ class Seen {
   }
 
   usersSince(hoursAgo) {
-    const HOUR_MILLISECONDS = 60*60*1000;
-    const seenSinceTime = new Date(Date.now() - (hoursAgo*HOUR_MILLISECONDS));
+    const HOUR_MILLISECONDS = 60 * 60 * 1000;
+    const seenSinceTime = new Date(Date.now() - (hoursAgo * HOUR_MILLISECONDS));
     const users = ((() => {
       const result = [];
       for (let nick in this.cache) {
@@ -94,17 +94,19 @@ class Seen {
   }
 }
 
-module.exports = function(robot) {
+var util = require("../lib/util")
+
+module.exports = function (robot) {
   const seen = new Seen(robot);
 
   // Keep track of last msg heard
-  robot.hear(/.*/, function(msg) {
+  robot.hear(/.*/, function (msg) {
     if (!is_pm(msg)) {
       return seen.add((ircname(msg)), (ircchan(msg)), msg.message.text);
     }
   });
 
-  return robot.respond(/seen @?([-\w.\\^|{}`\[\]]+):? ?(.*)/, function(msg) {
+  return robot.respond(/seen @?([-\w.\\^|{}`\[\]]+):? ?(.*)/, function (msg) {
     if ((msg.match[1] === "in") && (msg.match[2] === "last 24h")) {
       const users = seen.usersSince(24);
       return msg.send(`Active in ${msg.match[2]}: ${users.join(', ')}`);
@@ -115,17 +117,17 @@ module.exports = function(robot) {
       if (last.date) {
         const date_string = (() => {
           if (config.use_timeago) {
-          const timeago = require('timeago');
-          return timeago(new Date(last.date));
-        } else {
-          return `at ${new Date(last.date)}`;
-        }
+            const timeago = require('timeago');
+            return timeago(new Date(last.date));
+          } else {
+            return `at ${new Date(last.date)}`;
+          }
         })();
 
-        return msg.send(`${nick} was last seen ${date_string}` + (last.msg ? (`, saying '${last.msg}'`) : "") + ` in ${last.chan}`);
+        return util.reply(msg, `${nick} was last seen ${date_string}` + (last.msg ? (`, saying '${last.msg}'`) : "") + ` in ${last.chan}`);
 
       } else {
-        return msg.send(`I haven't seen ${nick} around lately`);
+        return util.reply(msg, `I haven't seen ${nick} around lately`);
       }
     }
   });

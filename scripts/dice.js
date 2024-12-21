@@ -20,24 +20,24 @@
 //
 // Author:
 //   ab9
-
-module.exports = function(robot) {
-  robot.respond(/roll (die|one)/i, msg => msg.reply(report([rollOne(6)])));
-  robot.respond(/roll dice/i, msg => msg.reply(report(roll(2, 6))));
-  return robot.respond(/roll (\d+)d(\d+)/i, function(msg) {
+var util = require("../lib/util")
+module.exports = function (robot) {
+  robot.respond(/roll (die|one)/i, msg => util.reply(msg, report([rollOne(6)])));
+  robot.respond(/roll dice/i, msg => util.reply(msg, report(roll(2, 6))));
+  return robot.respond(/roll (\d+)d(\d+)/i, function (msg) {
     const dice = parseInt(msg.match[1]);
     const sides = parseInt(msg.match[2]);
     const answer = sides < 1 ?
       "I don't know how to roll a zero-sided die."
-    : dice > 100 ?
-      "I'm not going to roll more than 100 dice for you."
-    :
-      report(roll(dice, sides));
-    return msg.reply(answer);
+      : dice > 100 ?
+        "I'm not going to roll more than 100 dice for you."
+        :
+        report(roll(dice, sides));
+    util.reply(msg, answer);
   });
 };
 
-var report = function(results) {
+var report = function (results) {
   if (results != null) {
     switch (results.length) {
       case 0:
